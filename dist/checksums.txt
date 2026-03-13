@@ -1,0 +1,2 @@
+f2c3807e699b5dd8cc64cb837911161b94260dee30e570d4e3fb59afcdbaec44  dist/openclaw-agentd-darwin-amd64.tar.gz
+4de5261ce8f8a4804508bde848113d2f6ba91eca3468e09a93af26b2554d3e08  dist/openclaw-agentd-darwin-arm64.tar.gz

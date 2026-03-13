@@ -7,10 +7,10 @@ class OpenclawAgentd < Formula
     if Hardware::CPU.arm?
       url "https://github.com/marketmaker4enterprise/openclaw-agentd/releases/download/v#{version}/openclaw-agentd-darwin-arm64.tar.gz"
       # TODO: fill in after running `make release` and uploading to GitHub releases
-      sha256 "REPLACE_WITH_ARM64_SHA256"
+      sha256 "4de5261ce8f8a4804508bde848113d2f6ba91eca3468e09a93af26b2554d3e08"
     else
       url "https://github.com/marketmaker4enterprise/openclaw-agentd/releases/download/v#{version}/openclaw-agentd-darwin-amd64.tar.gz"
-      sha256 "REPLACE_WITH_AMD64_SHA256"
+      sha256 "f2c3807e699b5dd8cc64cb837911161b94260dee30e570d4e3fb59afcdbaec44"
     end
   end
 

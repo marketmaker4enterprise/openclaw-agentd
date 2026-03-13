@@ -16,8 +16,8 @@ build:
 
 build-darwin:
 	mkdir -p $(BUILD_DIR)
-	GOOS=$(GOOS_DARWIN) GOARCH=$(GOARCH_AMD) go build $(LDFLAGS) -o $(BUILD_DIR)/$(BINARY)-darwin-amd64 ./cmd/$(BINARY)/
-	GOOS=$(GOOS_DARWIN) GOARCH=$(GOARCH_ARM) go build $(LDFLAGS) -o $(BUILD_DIR)/$(BINARY)-darwin-arm64 ./cmd/$(BINARY)/
+	CGO_ENABLED=1 GOOS=$(GOOS_DARWIN) GOARCH=$(GOARCH_AMD) go build $(LDFLAGS) -o $(BUILD_DIR)/$(BINARY)-darwin-amd64 ./cmd/$(BINARY)/
+	CGO_ENABLED=1 GOOS=$(GOOS_DARWIN) GOARCH=$(GOARCH_ARM) go build $(LDFLAGS) -o $(BUILD_DIR)/$(BINARY)-darwin-arm64 ./cmd/$(BINARY)/
 
 release: build-darwin
 	cd $(BUILD_DIR) && \
