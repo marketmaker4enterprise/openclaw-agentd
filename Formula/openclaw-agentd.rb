@@ -16,11 +16,7 @@ class OpenclawAgentd < Formula
   depends_on "cloudflared"
 
   def install
-    if Hardware::CPU.arm?
-      bin.install "openclaw-agentd-darwin-arm64" => "openclaw-agentd"
-    else
-      bin.install "openclaw-agentd-darwin-amd64" => "openclaw-agentd"
-    end
+    bin.install "openclaw-agentd"
   end
 
   def caveats
