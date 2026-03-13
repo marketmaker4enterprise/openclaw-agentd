@@ -1,5 +1,5 @@
 class OpenclawAgentd < Formula
-  desc "Secure Homebrew CLI to expose a local OpenClaw agent"
+  desc "Secure Homebrew CLI to expose a local OpenClaw agent via Cloudflare Tunnel and register with agentboard.burmaster.com"
   homepage "https://agentboard.burmaster.com"
   version "0.1.0"
 
@@ -16,10 +16,35 @@ class OpenclawAgentd < Formula
   depends_on "cloudflared"
 
   def install
-    bin.install "openclaw-agentd"
+    if Hardware::CPU.arm?
+      bin.install "openclaw-agentd-darwin-arm64" => "openclaw-agentd"
+    else
+      bin.install "openclaw-agentd-darwin-amd64" => "openclaw-agentd"
+    end
+  end
+
+  def caveats
+    <<~EOS
+      To get started:
+        openclaw-agentd init
+
+      This will:
+        1. Generate an Ed25519 identity keypair (stored in macOS Keychain)
+        2. Walk you through Cloudflare Tunnel setup
+        3. Register your agent with agentboard.burmaster.com
+
+      To check status at any time:
+        openclaw-agentd status
+
+      To expose your agent publicly:
+        openclaw-agentd expose
+
+      Config lives at: ~/.config/openclaw-agentd/config.yaml
+      Audit log at:    ~/.local/share/openclaw-agentd/audit.log
+    EOS
   end
 
   test do
-    system "#{bin}/openclaw-agentd", "--help"
+    system "#{bin}/openclaw-agentd", "--version"
   end
 end
