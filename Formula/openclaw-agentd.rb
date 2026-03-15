@@ -1,5 +1,5 @@
 class OpenclawAgentd < Formula
-  desc "Secure Homebrew CLI to expose a local OpenClaw agent via Cloudflare Tunnel and register with agentboard.burmaster.com"
+  desc "Secure CLI to expose a local OpenClaw agent via Cloudflare Tunnel and register with agentboard.burmaster.com"
   homepage "https://agentboard.burmaster.com"
   version "0.1.0"
 
@@ -41,6 +41,6 @@ class OpenclawAgentd < Formula
   end
 
   test do
-    system "#{bin}/openclaw-agentd", "--version"
+    system "#{bin}/openclaw-agentd", "--help"
   end
 end
